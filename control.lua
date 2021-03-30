@@ -3,13 +3,9 @@ require( "__SICoreFunctionLibrary__/util" )
 needlist( "__SICoreFunctionLibrary__" , "define/load" , "function/load" )
 needlist( "__SICoreFunctionLibrary__/runtime/structure" , "sievent_bus" , "siglobal" )
 
+need( "__SICoreFunctionLibrary__/function/lib/sinoise" )
+
 load()
-
--- ------------------------------------------------------------------------------------------------
--- ---------- 装载数据 ----------------------------------------------------------------------------
--- ------------------------------------------------------------------------------------------------
-
-randomGen = game.create_random_generator()
 
 -- ------------------------------------------------------------------------------------------------
 -- ---------- 更新机器 ----------------------------------------------------------------------------
@@ -20,8 +16,8 @@ function Build( event )
 	if entity.type == SITypes.entity.furnace or entity.type == SITypes.entity.machine then
 		local surface = entity.surface
 		local pos = entity.position
-		randomGen.re_seed( surface.map_gen_settings.seed+pos.x*1000+pos.y )
-		local level = math.floor( randomGen.operator( 0 , SISPLM.levelCount )+0.5 )
+		local noise = SINoise.New( surface.map_gen_settings.seed , 4 , 0.7 , 15 )
+		local level = math.floor( math.abs( noise:Get( pox.x , pox.y )*SISPLM.levelCount )+0.5 )
 		if level < 1 then return end
 		local name = entity.name .. "-lazy" .. level
 		local new_entity = surface.create_entity{ name = name , position = pos , direction = entity.direction , force = entity.force , raise_built = true }
