@@ -1,0 +1,10 @@
+{
+	"name" : "SISPLazyMachine" ,
+	"version" : "0.0.1" ,
+	"factorio_version" : "1.1" ,
+	"title" : "SI SP Lazy Machine" ,
+	"author" : "Sidoupiar" ,
+	"homepage" : "http://www.sidoupiar.com" ,
+	"description" : "Machines are no longer diligent and hard-working. Sometimes they become lazy and can't perform as well as they should." ,
+	"dependencies" : [ "SICoreFunctionLibrary >= 0.4.6" ]
+}
