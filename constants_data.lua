@@ -4,12 +4,12 @@ local data =
 	autoLoad = true ,
 	autoName = true ,
 	
+	levelCount = 10 ,
 	levels = {}
 }
 
-for i = 1 , 10 , 1 do
+for i = 1 , data.levelCount , 1 do
 	data.levels["lazy"..i] = { speedMult = 1-i*0.05 , healthMult = 1-i*0.05 }
 end
-data.levelCount = #data.levels
 
 return data
