@@ -9,7 +9,7 @@ load()
 -- ---------- 装载数据 ----------------------------------------------------------------------------
 -- ------------------------------------------------------------------------------------------------
 
-SINoise = need( "__SICoreFunctionLibrary__/function/lib/sinoise" )
+SINoise = need( "__SICoreFunctionLibrary__/library/sinoise" )
 
 LazyReg = "%-lazy[0-9]+$"
 LevelCount = ( SISPLM.levelCount + 8 ) / 2
