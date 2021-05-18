@@ -43,7 +43,7 @@ function Build( event )
 		if level < 1 and flag then return end
 		
 		if level > 0 then name = name .. "-lazy" .. level end
-		local new_entity = surface.create_entity{ name = name , position = pos , direction = entity.direction , force = entity.force , raise_built = true }
+		local new_entity = surface.create_entity{ name = name , position = pos , direction = entity.direction , force = entity.force , raise_built = false }
 		if not new_entity then return end
 		new_entity.copy_settings( entity )
 		entity.destroy{ raise_destroy = true }

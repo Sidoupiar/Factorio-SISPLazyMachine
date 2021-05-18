@@ -14,6 +14,9 @@ for index , type in pairs{ SITypes.entity.furnace , SITypes.entity.machine } do
 				new_machine.placeable_by = { item = entity.minable.result , count = 1 }
 				if not entity.localised_name then new_machine.localised_name = { "entity-name."..entity.name } end
 				if not entity.localised_description then new_machine.localised_description = { "entity-description."..entity.name } end
+				if new_machine.flags then
+					if not table.Has( new_machine.flags , SIFlags.entityFlags.hidden ) then table.insert( new_machine.flags , SIFlags.entityFlags.hidden ) end
+				else new_machine.flags = { SIFlags.entityFlags.hidden } end
 				table.insert( list , new_machine )
 			end
 		end
