@@ -11,7 +11,7 @@ for index , type in pairs{ SITypes.entity.furnace , SITypes.entity.machine } do
 				new_machine.name = entity.name .. "-" .. level
 				new_machine.crafting_speed = entity.crafting_speed * code.speedMult
 				new_machine.max_health = entity.max_health * code.healthMult
-				new_machine.placeable_by = { item = entity.minable.result , count = 1 }
+				new_machine.placeable_by = { item = SIDataGetters.GetMiningResult( entity ) , count = 1 }
 				if not entity.localised_name then new_machine.localised_name = { "entity-name."..entity.name } end
 				if not entity.localised_description then new_machine.localised_description = { "entity-description."..entity.name } end
 				if new_machine.flags then
